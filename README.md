@@ -1,5 +1,5 @@
 Learn grid, scss
 
-http://simple-portfolio.surge.sh/dist/index.html
+http://simple-portfolio.surge.sh
 
 Tutorial : on Youtube.
