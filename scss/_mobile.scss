@@ -1,0 +1,80 @@
+//Smartphones
+
+@include mediaSm {
+}
+//Tablets
+
+@include mediaMd {
+}
+
+//laps
+@include mediaLg {
+    main {
+        text-align: left;
+    }
+
+    .menu {
+        flex-direction: row;
+
+        &-nav,
+        &-branding {
+            width: 50%;
+            height: 100vh;
+        }
+
+        &-branding {
+            transform: translate3d(0, 100%, 0);
+
+            &.show {
+                transform: translate3d(0, 0, 0);
+            }
+
+            .portrait {
+                width: 250px;
+                height: 250px;
+                background: url("../img/portrait.jpg");
+                border-radius: 50%;
+                border: 3px solid $secondary-color;
+            }
+        }
+
+        &-nav {
+            //move top to bottom
+            transform: translate3d(0, -100%, 0);
+
+            &.show {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+
+    //About page
+    .about-info {
+        grid-template-areas:
+            "bioimage bio"
+            "job1 job2"
+            "job3 job4";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    //work
+    .projects {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+//Widescreens
+@include mediaxXL {
+    //About page
+    .about-info {
+        grid-template-areas:
+            "bioimage bio bio"
+            "job1 job2 job3";
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    //work
+    .projects {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

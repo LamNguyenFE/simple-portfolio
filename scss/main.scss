@@ -1,0 +1,208 @@
+//$ sass --watch scss:dist/css
+@import "config";
+
+@import "menu";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+    @include background();
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma;
+    line-height: 1.5;
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 9rem;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    &.sm-heading {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        //for litle background
+        padding: 0.2rem 1rem;
+
+        background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
+    }
+}
+
+a {
+    color: set-text-color($primary-color);
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+
+    z-index: 2;
+    width: 100%;
+}
+.text-secondary {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem;
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // text-align: center;
+
+    height: 100%;
+
+    .icons {
+        margin-top: 1rem;
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $secondary-color;
+
+                @include easeOut();
+            }
+        }
+    }
+
+    &#home {
+        //no scroll bar
+        overflow: hidden;
+
+        h1 {
+            margin-top: 20vh;
+        }
+    }
+}
+
+//About
+#about {
+    // text-align: center;
+}
+.about-info {
+    margin-top: 1rem;
+
+    display: grid;
+    grid-template-areas:
+        "bioimage"
+        "bio"
+        "job1"
+        "job2"
+        "job3";
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    align-items: center;
+
+    font-size: 1.5rem;
+
+    .bio-img {
+        grid-area: bioimage;
+
+        max-width: 100%;
+
+        background: url("../img/portrait.jpg");
+        border-radius: 50%;
+        border: 3px solid $secondary-color;
+
+        display: block;
+        // align-self: center;
+        justify-self: center;
+    }
+    .bio {
+        padding: 1rem;
+        grid-area: bio;
+        text-align: left;
+    }
+    // .job-1{
+    //     grid-area: bio;
+    // }
+    div {
+        border: 1px solid deeppink;
+    }
+
+    .job {
+        text-align: left;
+        background-color: lighten($primary-color, 5);
+        padding: 1rem;
+
+        border-bottom: $secondary-color 5px solid;
+
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+    }
+}
+
+//Work
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    align-items: center;
+
+    font-size: 1.5rem;
+    .item {
+        padding: 1rem;
+        border: 1px solid deeppink;
+        border-bottom: 5px solid $secondary-color;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        img {
+            max-width: 100%;
+            opacity: 0.8;
+            // border: 2px solid $secondary-color;
+
+            &:hover {
+                opacity: 1;
+                @include easeOut;
+            }
+        }
+    }
+}
+
+.btn {
+    display: block;
+    padding: 0.5rem;
+    border: 0;
+
+    margin-bottom: 0.3rem;
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color($secondary-color);
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+    background-color: darken($primary-color, 20);
+}
+
+.btn-light {
+    @extend .btn;
+    background-color: lighten($primary-color, 20);
+}
+
+.boxes {
+    p {
+        font-size: 1.8rem;
+    }
+}
+@import "mobile";
